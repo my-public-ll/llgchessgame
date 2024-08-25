@@ -76,21 +76,20 @@ require('./config/errorHandlers.js')(app);
 
 var server;
 
-// if (process.env.APP_ENV == 'development') {
-server = require('http').createServer(app).listen(8050, function () {
-    console.log("server is listening on port 8050")
-});
-// } else {
-//     var options = {
-//         key: fs.readFileSync('./certs/file.pem'),
-//         cert: fs.readFileSync('./certs/file.crt')
-//     };
-//     server = require('https').createServer(options, app).listen(8050, function() {
-//         console.log("server is listening on the port 8050")
-//     });
-// }
+if (process.env.APP_ENV == 'development') {
+    server = require('http').createServer(app).listen(8050, function () {
+        console.log("server is listening on port 8050")
+    });
+} else {
+    var options = {
+        key: fs.readFileSync('./certs/file.pem'),
+        cert: fs.readFileSync('./certs/file.crt')
+    };
+    server = require('https').createServer(options, app).listen(8050, function () {
+        console.log("server is listening on the port 8050")
+    });
+}
 
 require('./config/socket.js')(server);
-
 
 module.exports = app;
