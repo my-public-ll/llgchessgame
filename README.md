@@ -10,3 +10,9 @@ API: /play/balance/{address}
 
     - return code 400 Bad request if {address} is not a valid address
     - return code 200 and object {balance: {balance}}
+
+What I did:
+
+    - Add blockchain config: config/blockchain.js
+    - Add blockchain service: services/blockchain/getBalance.js
+    - Logic: route (work like controller) -> call service
