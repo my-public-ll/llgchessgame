@@ -1,0 +1,9 @@
+{
+    "chesshub": {
+        "db": "mongodb://mongodb:27017/test"
+    },
+    "blockchain": {
+        "rpc": "https://bsc-pokt.nodies.app",
+        "llgcontract": "0x4691F60c894d3f16047824004420542E4674E621"
+    }
+}
